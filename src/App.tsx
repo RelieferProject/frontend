@@ -16,6 +16,7 @@ function App() {
   const location = useLocation();
   const currentOutlet = useOutlet();
   const { nodeRef } = routes.find((route) => route.path === location.pathname) ?? {};
+ 
 
   return (
     <Providers>

@@ -9,13 +9,16 @@ import useRouting from '@hooks/useRouting';
 import { addressParse } from '@utils';
 import { useWeb3React } from '@web3-react/core';
 import MonkeySvg from '@assets/images/avatar/monkey.svg';
+import ButtonStyled from '@components/ButtonStyled';
+import { Link } from 'react-router-dom';
+import ConnectWalletBtn from '@components/ConnectWalletBtn';
 
 interface Props {}
 
 const HeaderWrapper = styled.div``;
 
 function LayoutsHeader(props: Props) {
-  // const { account } = useWeb3React();
+  const { account } = useWeb3React();
   const dispatch = useAppDispatch();
   const open = useSideBar();
   const toggle = () => {
@@ -61,13 +64,14 @@ function LayoutsHeader(props: Props) {
             <Icon icon={'bytesize:gift'} className="icon" />
           </div>
         </div>
-        <div className=" p-1 h-full rounded-xl">
+        <ConnectWalletBtn />
+        {/* <div className=" p-1 h-full rounded-xl">
           <img className="w-full h-full object-contain" src={MonkeySvg} />
         </div>
         <div className="ml-4 flex flex-col">
           <p className="text-xl">Ape Master</p>
           <span className="text-base text-text-gray">Super Admin</span>
-        </div>
+        </div> */}
       </div>
       {/* <div className="flex space-x-2 items-center">
         <div onClick={() => toggle()} className="md:hidden w-[5rem]">

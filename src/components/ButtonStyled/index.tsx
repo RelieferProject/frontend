@@ -33,7 +33,7 @@ const ButtonStyledWrapper = styled.div<{ theme: string; disabled: boolean }>`
     }
   }
   button {
-    padding: 1rem 0;
+    padding: 1rem 0.4rem;
     position: relative;
   }
   .overlay {
@@ -86,7 +86,6 @@ function ButtonStyled({
     }
   };
 
-  console.log(disabled);
 
   return (
     <ButtonStyledWrapper

@@ -1,3 +1,4 @@
+import useVerifyToken from '@hooks/useVerifyToken';
 import { useSideBar } from '@states/layout/hooks';
 import { useEagerConnect } from '@utils/web3Hooks';
 import { useWeb3React } from '@web3-react/core';
@@ -19,8 +20,10 @@ function Layout(props: Props) {
   /* dimming-bg */
   const { active } = useWeb3React();
   const open = useSideBar();
-  // const navigate = useNavigate();
+  
   useEagerConnect();
+  useVerifyToken();
+  // const navigate = useNavigate();
 
   // useEffect(() => {
   //   if (!active) {

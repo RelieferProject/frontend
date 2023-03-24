@@ -11,7 +11,7 @@ const routes = [
   { path: '/', element: <AdminDashboard name="Dashboard" />, nodeRef: createRef() },
   // { path: '/*', element: <AdminDashboard name="Dashboard" />, nodeRef: createRef() },
   // { path: '/', key: 'Other', name: 'Other', element: <Navigate to="/admin/dashboard" replace /> },
-  // { path: '/connect', key: 'Connect', name: 'Connect', element: <Connect />, nodeRef: createRef() },
+  { path: '/connect', key: 'Connect', name: 'Connect Wallet', element: <Connect />, nodeRef: createRef() },
   // { path: '/test', key: 'Test', name: 'Test', element: <Test name="Test" />, nodeRef: createRef() },
   // { path: '/*', key: 'Other', name: 'Other', element: () => <Navigate to="/admin/dashboard" /> },
 
