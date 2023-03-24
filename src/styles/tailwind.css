@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .leftBorder {
+    @apply border-l-6 border-leftBorder px-5 rounded-sm bg-textBackground py-2;
+  }
+  .BottomRedBorder {
+    @apply border-b-3 border-red-900 rounded-sm;
+  }
+  .BottomGreenBorder {
+    @apply border-b-3 border-green-900 rounded-sm;
+  }
+  .animateAll500 {
+    @apply transition-all ease-in-out duration-500;
+  }
+}
+
+@font-face {
+  font-family: 'Prompt';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/Prompt/Prompt-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('../assets/fonts/Poppins-Thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('../assets/fonts/Poppins-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../assets/fonts/Poppins-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/Poppins-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/fonts/Poppins-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../assets/fonts/Poppins-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../assets/fonts/Poppins-Black.ttf') format('truetype');
+}
+
+.input-blank {
+  @apply shadow-none border-none 
+  outline-none focus:outline-none ring-0 
+  focus:ring-0  focus:border-0 border-0;
+}
+
+.icon-box {
+  @apply text-xl rounded-xl p-3 border-[1px] border-primary2 relative transition-all
+  before:absolute before:bg-primary2 before:border-white before:border-2 
+  before:w-5 before:h-5 before:rounded-full 
+  before:-top-2 before:-right-2 cursor-pointer
+
+  after:absolute after:bg-primary2 after:border-white after:border-2 
+  after:w-5 after:h-5 after:rounded-full 
+  after:-top-2 after:-right-2;
+}
+
+.icon-box * {
+  @apply text-text-gray;
+}
+
+.icon-box-active * {
+  @apply text-primary2;
+}
+
+.icon-box-active {
+  @apply after:animate-ping;
+}
+
+.icon-box:hover {
+  @apply icon-box-active;
+}
+
+/* menu */
+.menu-item {
+  @apply text-2xl rounded transition-all flex items-center
+  space-x-4 cursor-pointer;
+}
+
+.menu-item-sub {
+  @apply text-2xl rounded transition-all flex items-center
+  space-x-4 cursor-pointer;
+}
+
+.menu-item-unactive {
+  @apply bg-white;
+}
+
+.menu-item-active {
+  @apply bg-gray-200;
+}
+
+.menu-item-unactive * {
+  @apply text-gray-500;
+}
+
+.menu-item-active * {
+  @apply text-text-purple font-bold;
+}
+
+.menu-item-sub-unactive {
+  @apply bg-white;
+}
+
+.menu-item-sub-unactive * {
+  @apply text-gray-500;
+}
+
+.menu-item-sub-active * {
+  @apply text-text-purple font-bold;
+}
+
+.menu-item:hover {
+  @apply menu-item-active;
+}
+
+.menu-item-sub:hover {
+  @apply menu-item-active;
+}
+
+.icon-green * {
+  color: #2bc155;
+}
+.icon-red * {
+  color: #ff3e3e;
+}
+
+.icon-purple * {
+  color: #363062;
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes border {
+  0% {
+    @apply border-yellow-500;
+  }
+
+  50% {
+    @apply border-transparent;
+  }
+
+  100% {
+    @apply border-yellow-500;
+  }
+}
+
+.fade-out {
+  animation: fade-out 0.5s ease-in-out forwards;
+}
+
+.border-animation {
+  animation: border 2s linear infinite;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
