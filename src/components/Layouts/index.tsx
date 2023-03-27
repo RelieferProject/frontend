@@ -1,3 +1,4 @@
+import useGetProfile from '@hooks/useGetProfile';
 import useVerifyToken from '@hooks/useVerifyToken';
 import { useSideBar } from '@states/layout/hooks';
 import { useEagerConnect } from '@utils/web3Hooks';
@@ -20,9 +21,10 @@ function Layout(props: Props) {
   /* dimming-bg */
   const { active } = useWeb3React();
   const open = useSideBar();
-  
+
   useEagerConnect();
   useVerifyToken();
+  useGetProfile();
   // const navigate = useNavigate();
 
   // useEffect(() => {

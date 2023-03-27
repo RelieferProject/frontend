@@ -142,10 +142,10 @@ function WalletConnect() {
       {/*  */}
       <CSSTransition in={active && Boolean(token)} timeout={300} classNames="fade" unmountOnExit>
         <div className="min-w-[40rem] absolute top-0 mx-auto p-10 rounded-md bg-bg-dark-medium flex flex-col items-center space-y-8">
-          <b className="text-5xl">Your wallet</b>
+          <b className="text-5xl text-white">Your wallet</b>
 
           <div className="w-full relative flex items-center">
-            <div className="text-2xl p-4 w-full rounded-md bg-bg-dark-light">{account}</div>
+            <div className="text-white text-2xl p-4 w-full rounded-md bg-bg-dark-light">{account}</div>
 
             <ButtonStyled color="secondary" className="w-[10rem]">
               <CopyToClipboard text={account || ''}>

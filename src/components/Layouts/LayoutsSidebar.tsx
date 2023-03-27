@@ -102,7 +102,7 @@ function LayoutsSidebar(props: Props) {
           <div className="flex items-center">
             <Link to={'/'} className="flex items-center">
               <img className="w-12 h-12" src={logo} />
-              <h1 className="ml-6 text-2xl text-text-purple font-bold">Ape Insight</h1>
+              <h1 className="ml-6 text-2xl text-text-purple font-bold">Reliefer</h1>
             </Link>
             <div className="flex space-x-2 items-center">
               <div onClick={() => toggle()} className="">
@@ -183,10 +183,9 @@ function LayoutsSidebar(props: Props) {
           <p className="text-white">Generate Report</p>
         </div>
         <p className="text-text-gray text-base">
-          Ape Insight Dashboard
-          <br /> © 2022 All Rights Reserved
+          Reliefer Dashboard
         </p>
-        <p className="text-text-gray mt-8 text-base mb-4">Made with ♥ by Ape Insight Team</p>
+        <p className="text-text-gray mt-8 text-base mb-4">Made with ♥ by Reliefer Team</p>
         <ButtonStyled className="w-full" onClick={logoutClick}>
           {' '}
           Logout

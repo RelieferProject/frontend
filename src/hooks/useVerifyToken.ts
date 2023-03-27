@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import useActiveWeb3React from './useActiveWeb3React';
 import Web3Token from 'web3-token';
 import { useAppDispatch } from '@states/hooks';
-import { LOGIN, LOGOUT, SETTOKEN } from '@states/profile/action';
+import { LOGIN, LOGOUT, SETPROFILE, SETTOKEN } from '@states/profile/action';
 import { useToken } from '@states/profile/hooks';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
@@ -15,7 +15,6 @@ const useVerifyToken = async () => {
   const token = useToken();
   const { account, library, deactivate } = useWeb3React();
   const location = useLocation();
-  const referal = '';
 
   useEffect(() => {
     const generateToken = async () => {
@@ -25,9 +24,8 @@ const useVerifyToken = async () => {
         const token = await Web3Token.sign((msg) => signer.signMessage(msg), '1d');
         // console.log('success', token);
         await axios
-          .post(`${process.env.VITE_BASE_URL}/auth/login`, {
+          .post(`${import.meta.env.VITE_BASE_URL}/auth/login`, {
             token,
-            referal,
           })
           .then((res) => {
             dispatch(LOGIN({ token, account }));

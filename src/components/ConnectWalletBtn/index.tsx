@@ -21,7 +21,7 @@ function ConnectWalletBtn(props: Props) {
       >
         {/* <RiWallet3Fill className="custom-gradient-text-primary" /> */}
         <div className="font-bold text-xl text-white">
-          {token
+          {token &&  accountWeb3
             ? accountWeb3.slice(0, 4) +
               '....' +
               accountWeb3.slice(accountWeb3.length - 4, accountWeb3.length)

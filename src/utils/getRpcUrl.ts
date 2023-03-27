@@ -21,8 +21,8 @@ if (import.meta.env.NODE_ENV === 'production' && import.meta.env.VITE_APP_NODE_1
   nodes.push(import.meta.env.VITE_APP_NODE_1);
 }
 
-const getNodeUrl = () => {
+const getRpcUrl = () => {
   return sample(nodes);
 };
 
-export default getNodeUrl;
+export default getRpcUrl;
