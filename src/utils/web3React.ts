@@ -1,3 +1,4 @@
+import { Web3Provider } from '@ethersproject/providers';
 import { InjectedConnector } from '@web3-react/injected-connector';
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
 // import { BscConnector } from '@binance-chain/bsc-connector';
@@ -33,9 +34,10 @@ export const connectorsByName: { [connectorName in ConnectorNames]: any } = {
   // [ConnectorNames.BSC]: bscConnector,
 };
 
-export const getLibrary = (provider: any): ethers.providers.Web3Provider => {
-  const library = new ethers.providers.Web3Provider(provider);
+export const getLibrary = (provider: any): Web3Provider => {
+  const library = new Web3Provider(provider);
   library.pollingInterval = POLLING_INTERVAL;
+  // return library;
   return library;
 };
 
