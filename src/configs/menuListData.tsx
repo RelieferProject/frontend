@@ -1,4 +1,6 @@
 import { RiTrophyLine, RiDashboardLine, RiWalletLine } from 'react-icons/ri';
+import { MdCampaign } from 'react-icons/md';
+
 
 const menuListData: any[] = [
   {
@@ -6,6 +8,12 @@ const menuListData: any[] = [
     key: 'Dashboard',
     path: '/',
     icon: <RiDashboardLine />,
+  },
+  {
+    name: 'Campaign',
+    key: 'campaign',
+    path: '/campaign',
+    icon: <MdCampaign />,
   },
   {
     name: 'Profile',

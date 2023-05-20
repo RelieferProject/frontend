@@ -1,6 +1,7 @@
 import AdminDashboard from '@views/AdminDashboard';
 import AdminLeaderboard from '@views/AdminLeaderBoard';
 import AdminProfile from '@views/AdminProfile';
+import CampaignPage from '@views/Campaign';
 import Connect from '@views/Connect';
 import Home from '@views/Home';
 import Test from '@views/Test';
@@ -12,6 +13,7 @@ const routes = [
   // { path: '/*', element: <AdminDashboard name="Dashboard" />, nodeRef: createRef() },
   // { path: '/', key: 'Other', name: 'Other', element: <Navigate to="/admin/dashboard" replace /> },
   { path: '/connect', key: 'Connect', name: 'Connect Wallet', element: <Connect />, nodeRef: createRef() },
+  { path: '/campaign', key: 'Connect', name: 'Campaign', element: <CampaignPage />, nodeRef: createRef() },
   // { path: '/test', key: 'Test', name: 'Test', element: <Test name="Test" />, nodeRef: createRef() },
   // { path: '/*', key: 'Other', name: 'Other', element: () => <Navigate to="/admin/dashboard" /> },
 
