@@ -12,6 +12,10 @@ const StyledModalContainer = styled.div`
   .icon {
     font-size: 4rem;
     margin: 3rem auto;
+    color: #00ff00;
+  }
+  .icon *{
+    color: #00ff00;
   }
 `;
 
@@ -62,7 +66,7 @@ const ConfirmModal = () => {
             onClick={onreject}
           />
           <div
-            className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col justify-between w-[40rem] h-[30rem] p-4 rounded-md bg-bg-dark-medium border-2 border-secondary1`}
+            className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col justify-between min-w-[40rem] h-[30rem] p-4 rounded-md bg-bg-dark-medium border-2 border-secondary1`}
           >
             <div
               onClick={onreject}
@@ -70,7 +74,7 @@ const ConfirmModal = () => {
             >
               <AiOutlineClose />
             </div>
-            <h1 className="text-4xl border-b-2 border-bg-dark-light pb-5 my-4">
+            <h1 className="text-4xl border-b-2 border-bg-dark-light pb-5 my-4 text-white">
               {state.title ? state.title : 'Confirmation'}
             </h1>
             <div className="flex flex-col h-full justify-between">

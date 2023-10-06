@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import useActiveWeb3React from './useActiveWeb3React';
 import { getCampaignContract, useFactoryContract } from './useContract';
+import { selectCount } from '@states/counter/counterSlice';
+import { useCounter } from '@states/counter/hooks';
 
 export enum STATUS_ENUM {
   NOTSTARTED,
@@ -41,24 +43,26 @@ export const UserStatusCampaignArray = [
 ];
 
 export interface CampaignInterface {
-  address: String;
+  address: string;
   startTime: Number;
   endTime: Number;
   durationToEarn: Number;
-  status: String;
+  status: any;
   totalTokenAmount: Number;
   rewardTokenAmount: Number;
   rewardToken: String;
   users: String[];
   maxUser: Number;
+  owner: string;
 }
 
 export const useFactoryGetList = () => {
   const factory = useFactoryContract();
   const { account, active, library } = useActiveWeb3React();
   const [campaigns, setCampaigns] = useState<any[]>([]);
+  const count = useCounter();
 
-  const fetchCampaing = useCallback(async () => {
+  const fetchCampaign = useCallback(async () => {
     setCampaigns([]);
     if (!factory) return;
     const campaignsLists = await factory.getCampaigns();
@@ -77,14 +81,15 @@ export const useFactoryGetList = () => {
         rewardToken: campaignFetch.rewardToken,
         users: campaignFetch.users,
         maxUser: campaignFetch.maxUser,
+        owner: campaignFetch.owner,
       };
       setCampaigns((prev) => [...prev, campaignData]);
     });
-  }, [account, active]);
+  }, [account, active, count]);
 
   useEffect(() => {
-    fetchCampaing();
-  }, [fetchCampaing]);
+    fetchCampaign();
+  }, [fetchCampaign]);
 
   return campaigns;
 };
