@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package.json /app
 RUN yarn install --force
 COPY . /app
-RUN npm run build
+RUN yarn build
 
 ### Serve Step
 # pull the Node.js Docker image
