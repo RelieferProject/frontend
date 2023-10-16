@@ -1,7 +1,7 @@
 FROM node:14 as builder
 WORKDIR /app
 COPY package.json /app
-RUN yarn install --force
+RUN yarn install --ignore-engines
 COPY . /app
 RUN yarn build
 
