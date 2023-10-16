@@ -4,6 +4,8 @@ import { useFactoryGetList } from '@hooks/useFactory';
 import React from 'react';
 import styled from 'styled-components';
 import CampaignCard from './components/CampainCard';
+import ButtonStyled from '@components/ButtonStyled';
+import { Link } from 'react-router-dom';
 
 const CampaignPageWrapper = styled.div``;
 
@@ -13,7 +15,14 @@ const CampaignPage = () => {
   return (
     <CampaignPageWrapper>
       <LayoutsContainer>
-        <h1 className='text-4xl font-bold'>Campaings List</h1>
+        <div className="flex justify-between w-full items-center">
+          <h1 className="text-4xl font-bold">Campaings List</h1>
+          <div className="w-[20rem]">
+            <Link to="/campaign/add">
+              <ButtonStyled className="w-full text-center">+ Add Campaign</ButtonStyled>
+            </Link>
+          </div>
+        </div>
         <div className="w-full flex flex-wrap justify-start gap-4 mt-6">
           {campaignList.map((item, index) => {
             return <CampaignCard data={item} key={item.address} />;

@@ -1,5 +1,6 @@
 import { RiTrophyLine, RiDashboardLine, RiWalletLine } from 'react-icons/ri';
 import { MdCampaign } from 'react-icons/md';
+import { HiUserGroup } from 'react-icons/hi';
 
 
 const menuListData: any[] = [
@@ -16,17 +17,17 @@ const menuListData: any[] = [
     icon: <MdCampaign />,
   },
   {
-    name: 'Profile',
-    key: 'profile',
-    path: '/admin/profile',
-    icon: <RiWalletLine />,
+    name: 'User',
+    key: 'user',
+    path: '/user',
+    icon: <HiUserGroup />,
   },
-  {
-    name: 'Leaderboard',
-    key: 'Leaderboard',
-    path: '/admin/Leaderboard',
-    icon: <RiTrophyLine />,
-  },
+  // {
+  //   name: 'Leaderboard',
+  //   key: 'Leaderboard',
+  //   path: '/admin/Leaderboard',
+  //   icon: <RiTrophyLine />,
+  // },
   // {
   //   name: 'My Wallet',
   //   key: 'mywallet',

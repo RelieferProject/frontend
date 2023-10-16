@@ -3,7 +3,6 @@ import { AbiItem } from 'web3-utils';
 import { ContractOptions } from 'web3-eth-contract';
 import useWeb3 from './useWeb3';
 
-
 import useActiveWeb3React from './useActiveWeb3React';
 import { useWeb3React } from '@web3-react/core';
 import { Contract } from '@ethersproject/contracts';
@@ -49,10 +48,7 @@ export function useERC20Contract(address = contractAddress.token, withSignerIfPo
   return useContract(address, ERC20_ABI, withSignerIfPossible);
 }
 
-export function useFactoryContract(
-  address = contractAddress.factory,
-  withSignerIfPossible = true
-) {
+export function useFactoryContract(address = contractAddress.factory, withSignerIfPossible = true) {
   return useContract(address, FACTORY_ABI, withSignerIfPossible);
 }
 
@@ -60,6 +56,7 @@ export function useValidatorContract(
   address = contractAddress.validator,
   withSignerIfPossible = true
 ) {
+  // console.log('useValidatorContract', address);
   return useContract(address, VALIDATOR_ABI, withSignerIfPossible);
 }
 
@@ -67,7 +64,12 @@ export function useCampaignContract(address: string, withSignerIfPossible = true
   return useContract(address, CAMPAIGN_ABI, withSignerIfPossible);
 }
 
-export function getCampaignContract(address: string,library:Web3Provider,account?:string, withSignerIfPossible = true){
+export function getCampaignContract(
+  address: string,
+  library: Web3Provider,
+  account?: string,
+  withSignerIfPossible = true
+) {
   return getContract(
     address,
     CAMPAIGN_ABI,

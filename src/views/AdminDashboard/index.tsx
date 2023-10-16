@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import Wallet from './Wallet';
 
 interface Props extends SimpleComponent {}
 
@@ -13,7 +14,7 @@ function AdminDashboard(props: Props) {
 
   return (
     <AdminDashboardWrapper className="w-fulll pb-20">
-      
+        <Wallet />
     </AdminDashboardWrapper>
   );
 }

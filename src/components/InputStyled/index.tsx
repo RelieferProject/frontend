@@ -5,7 +5,7 @@ import { Input } from 'antd';
 interface Props extends SimpleComponent, InputProps {}
 
 function InputStyled(props: Props) {
-  console.log(props);
+  // console.log(props);
   return <Input {...props} style={null} />;
 }
 
