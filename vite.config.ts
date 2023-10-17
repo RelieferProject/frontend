@@ -54,7 +54,7 @@ export default defineConfig({
       stream: 'stream-browserify',
       zlib: 'browserify-zlib',
       util: 'util',
-      web3: 'web3/dist/web3.min.js',
+      // web3: 'web3/dist/web3.min.js',
     },
   },
 });

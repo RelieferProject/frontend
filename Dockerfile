@@ -1,7 +1,9 @@
-FROM node:14 as builder
+FROM node:16-alpine as builder
 WORKDIR /app
+# COPY . /app
 COPY package.json /app
-RUN yarn install --ignore-engines
+# COPY yarn.lock /app
+RUN yarn install --ignore-engines --frozen-lockfile
 COPY . /app
 RUN yarn build
 
