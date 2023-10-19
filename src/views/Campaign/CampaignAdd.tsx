@@ -32,10 +32,10 @@ function CampaignAdd(props: Props) {
   const navigate = useNavigate();
 
   const initialValues = {
-    _rewardTokenAmount: 1000,
-    _maxUser: 100,
-    name: 'test',
-    description: 'test',
+    _rewardTokenAmount: 10,
+    _maxUser: 10,
+    name: '',
+    description: '',
   };
 
   const [state, setState] = useState({
