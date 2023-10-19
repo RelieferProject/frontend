@@ -220,7 +220,7 @@ function CampaignAdd(props: Props) {
                     <DatePicker
                       name="_endTime"
                       value={state._endTime}
-                      onChange={(a, b) => onChangeDate('_startTime', a, b)}
+                      onChange={(a, b) => onChangeDate('_endTime', a, b)}
                     />
                   </div>
                   <TimePicker
