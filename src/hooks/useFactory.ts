@@ -6,6 +6,7 @@ import { useCounter } from '@states/counter/hooks';
 import { useToken } from '@states/profile/hooks';
 import axios from 'axios';
 import { BigNumber } from 'ethers';
+import { Dictionary } from '@reduxjs/toolkit';
 
 export enum STATUS_ENUM {
   NOTSTARTED,
@@ -45,6 +46,30 @@ export const UserStatusCampaignArray = [
   'FALSE_RULE',
 ];
 
+export const StatusCampaign: Dictionary<string> = {
+  NOTSTARTED: 'ยังไม่เปิดรับสมัคร',
+  START_JOIN: 'รับสมัคร',
+  END_JOIN: 'ปืดรับสมัคร',
+  STARTED_CAMPAIGN: 'สามารถเข้าร่วมกิจกรรมได้',
+  END_CAMPAIGN: 'ปิดกิจกรรม',
+  SUCCESS: 'คำนวณรางวัลเรียบร้อย',
+  CLAIM: 'สามารถรับรางวัลได้',
+};
+
+export const UserStatusCampaign: Dictionary<string> = {
+  NOT_JOIN: 'เข้าร่วมแล้ว',
+  JOIN: 'เข้าร่วมแล้ว',
+  STARTED_CAMPAIGN: 'กำลังเข้าร่วม',
+  END_CAMPAIGN: 'ออกจากการเข้าร่วมแล้ว',
+  CLAIM: 'รับรางวัลแล้ว',
+  FALSE_RULE: 'ผิดกฎ',
+};
+
+interface userStatus {
+  user: string;
+  status: string;
+  detail: any;
+}
 export interface CampaignInterface {
   address: string;
   startTime: Number;
@@ -61,6 +86,7 @@ export interface CampaignInterface {
   picture: any[];
   name: string;
   id: string;
+  userStatus?: userStatus[];
 }
 
 export const getCampaignList = async (token) => {
@@ -104,6 +130,15 @@ export const useCampaignByAddress = (address: string): CampaignInterface => {
 
     const campaignContract = getCampaignContract(campaignsFromAPI.address, library, account);
     const campaignFetch = await campaignContract.getData();
+    const userStatus = campaignFetch.users.map(async (user) => {
+      const userStatus = await campaignContract.get_userStatus(account);
+      const userDetail = await fetchUser(token, user);
+      return {
+        user,
+        status: UserStatusCampaignArray[userStatus],
+        detail: userDetail,
+      };
+    });
     const campaignData: CampaignInterface = {
       address: campaignsFromAPI.address,
       startTime: campaignFetch.startTime * 1000,
@@ -120,6 +155,7 @@ export const useCampaignByAddress = (address: string): CampaignInterface => {
       picture: campaignsFromAPI.picture,
       name: campaignsFromAPI.name,
       id: campaignsFromAPI.id,
+      userStatus: await Promise.all(userStatus),
     };
     console.log(campaignData);
     setCampaign(campaignData);
@@ -130,6 +166,21 @@ export const useCampaignByAddress = (address: string): CampaignInterface => {
   }, [fetchCampaign]);
 
   return campaign;
+};
+
+const fetchUser = async (token, address) => {
+  try {
+    const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/user/${address}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (res.data.isSuccess) {
+      return res.data.data;
+    }
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const useFactoryGetList = () => {
@@ -148,6 +199,7 @@ export const useFactoryGetList = () => {
       const campaignContract = getCampaignContract(campaign.address, library, account);
       const campaignFetch = await campaignContract.getData();
       console.log(campaignFetch);
+
       const campaignData: CampaignInterface = {
         address: campaign.address,
         startTime: campaignFetch.startTime * 1000,

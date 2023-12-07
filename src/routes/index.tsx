@@ -3,6 +3,7 @@ import AdminLeaderboard from '@views/AdminLeaderBoard';
 import AdminProfile from '@views/AdminProfile';
 import CampaignPage from '@views/Campaign';
 import CampaignAdd from '@views/Campaign/CampaignAdd';
+import CampaignUserPage from '@views/Campaign/CampaignUser';
 import Connect from '@views/Connect';
 import Home from '@views/Home';
 import Test from '@views/Test';
@@ -26,6 +27,13 @@ const routes = [
     key: 'campaign',
     name: 'Campaign',
     element: <CampaignPage />,
+    nodeRef: createRef(),
+  },
+  {
+    path: '/campaign/:id',
+    key: 'campaign',
+    name: 'Campaign',
+    element: <CampaignUserPage />,
     nodeRef: createRef(),
   },
   {

@@ -1,6 +1,6 @@
 import LayoutsContainer from '@components/Layouts/LayoutsContainer';
 import { useCampaignContract, useFactoryContract } from '@hooks/useContract';
-import { CampaignInterface, useFactoryGetList } from '@hooks/useFactory';
+import { CampaignInterface, StatusCampaign, useFactoryGetList } from '@hooks/useFactory';
 import { addressParse } from '@utils';
 import React from 'react';
 import styled from 'styled-components';
@@ -14,6 +14,7 @@ import { increment } from '@states/counter/counterSlice';
 import { useCounter } from '@states/counter/hooks';
 import { parseEther } from 'ethers/lib/utils';
 import { getRelieferBalance } from '@hooks/useReliefer';
+import { Link } from 'react-router-dom';
 
 const CampaignCardWrapper = styled.div``;
 
@@ -148,24 +149,22 @@ const CampaignCard = ({ data }: { data: CampaignInterface }) => {
         {relieferBalance}
       </div>
 
-      
-
-      <div>
+      {/* <div>
         <b>RELIEFER ALL BALANCE {}</b>
         {data.totalTokenAmount.toString()}
-      </div>
+      </div> */}
 
       <div>
-        <b>Name: {}</b>
+        <b>ชื่อ: {}</b>
         {data.name}
       </div>
 
       <div>
-        <b>Status: </b>
-        <span>{data.status}</span>
+        <b>สถานะ: </b>
+        <span>{StatusCampaign[data.status]}</span>
       </div>
       <div>
-        <b>Start Time: </b>
+        <b>เวลาเริ่ม: </b>
         <span className="text-md">
           {new Date(+data.startTime).toLocaleDateString()} :{' '}
           {new Date(+data.startTime).toLocaleTimeString()}
@@ -173,7 +172,7 @@ const CampaignCard = ({ data }: { data: CampaignInterface }) => {
       </div>
 
       <div>
-        <b>End Time: </b>
+        <b>เวลาสิ้นสุด: </b>
         <span className="text-md">
           {new Date(+data.endTime).toLocaleDateString()} :{' '}
           {new Date(+data.endTime).toLocaleTimeString()}
@@ -181,7 +180,7 @@ const CampaignCard = ({ data }: { data: CampaignInterface }) => {
       </div>
 
       <div>
-        <b>User : </b>
+        <b>คนที่เข้าร่วม : </b>
         <span>
           {data.users.length} / {data.maxUser.toString()}
         </span>
@@ -196,26 +195,26 @@ const CampaignCard = ({ data }: { data: CampaignInterface }) => {
             color="secondary"
             className="text-center w-full"
           >
-            Start joining campaign
+            เริ่มรับสมัคร
           </ButtonStyled>
         )}
 
         {data.owner.toLowerCase() === account.toLowerCase() && data.status === 'START_JOIN' && (
           <ButtonStyled onClick={endJoinCampaign} color="secondary" className="text-center w-full">
-            End joining campaign
+            ปิดรับสมัคร
           </ButtonStyled>
         )}
 
         {data.owner.toLowerCase() === account.toLowerCase() && data.status === 'END_JOIN' && (
           <ButtonStyled onClick={startCampaign} color="secondary" className="text-center w-full">
-            Start Campaign count duration campaign
+            เริ่มนับเวลา
           </ButtonStyled>
         )}
 
         {data.owner.toLowerCase() === account.toLowerCase() &&
           data.status === 'STARTED_CAMPAIGN' && (
             <ButtonStyled onClick={endCampaign} color="secondary" className="text-center w-full">
-              End campaign
+              ปิดนับเวลา
             </ButtonStyled>
           )}
 
@@ -225,15 +224,21 @@ const CampaignCard = ({ data }: { data: CampaignInterface }) => {
             color="secondary"
             className="text-center w-full"
           >
-            Calculate Reward
+            คำนวณรางวัล
           </ButtonStyled>
         )}
 
         {data.owner.toLowerCase() === account.toLowerCase() && data.status === 'SUCCESS' && (
           <ButtonStyled onClick={mintReward} color="secondary" className="text-center w-full">
-            Mint Reward
+            มอบรางวัล
           </ButtonStyled>
         )}
+
+        <div className='w-full'>
+          <Link to={`/campaign/${data.address}`}>
+            <ButtonStyled className="text-center w-full">ดูสมาชิก</ButtonStyled>
+          </Link>
+        </div>
       </div>
     </CampaignCardWrapper>
   );
