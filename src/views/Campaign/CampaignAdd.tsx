@@ -169,37 +169,37 @@ function CampaignAdd(props: Props) {
               <Form.Item
                 name="name"
                 className="w-full"
-                label="Name of Campaign"
+                label="ชื่อกิจกรรม"
                 rules={[
                   {
                     required: true,
-                    message: 'please fill name of campaign!',
+                    message: 'โปรดกรอกชื่อกิจกรรม',
                   },
                 ]}
               >
                 <InputStyled
                   className="w-auto"
                   type={'text'}
-                  placeholder="Name of Campaign"
+                  placeholder="ชื่อกิจกรรม"
                 ></InputStyled>
               </Form.Item>
               <Form.Item
                 name="description"
                 className="w-full"
-                label="Description of Campaign"
+                label="คำอธิบาย"
                 rules={[
                   {
                     required: true,
-                    message: 'please fill description of campaign!',
+                    message: 'โปรดกรอกคำอธิบาย',
                   },
                 ]}
               >
-                <TextArea className="w-auto" rows={4} placeholder="description of campaign" />
+                <TextArea className="w-auto" rows={4} placeholder="คำอธิบาย" />
               </Form.Item>
 
               <div className="w-full grid grid-cols-3 mb-6">
                 <div className="w-full">
-                  <p className="text-[15px] mb-4">* Start Time</p>
+                  <p className="text-[15px] mb-4">* เวลาเริ่มกิจกรรม</p>
                   <div className="mb-4">
                     <DatePicker
                       name="_startTime"
@@ -215,7 +215,7 @@ function CampaignAdd(props: Props) {
                   />
                 </div>
                 <div className="w-full">
-                  <p className="text-[15px] mb-4">* End Time</p>
+                  <p className="text-[15px] mb-4">* เวลาเริ่มกิจกรรม</p>
                   <div className="mb-4">
                     <DatePicker
                       name="_endTime"
@@ -230,7 +230,7 @@ function CampaignAdd(props: Props) {
                   />
                 </div>
                 <div className="w-full">
-                  <p className="text-[15px]">* Duration (HH:mm)</p>
+                  <p className="text-[15px]">* ระยะเวลา (ชั่วโมง:นาที)</p>
                   <div className="mt-4">
                     <TimePicker
                       name="_durationToEarn"
@@ -247,7 +247,7 @@ function CampaignAdd(props: Props) {
                 <Form.Item
                   name="_rewardTokenAmount"
                   className="w-full"
-                  label="Amount of Reward Token"
+                  label="รางวัลเหรียญดิจิตอล"
                   rules={[
                     {
                       required: true,
@@ -265,7 +265,7 @@ function CampaignAdd(props: Props) {
                 <Form.Item
                   name="_maxUser"
                   className="w-full"
-                  label="Amount of max user"
+                  label="จำนวนสมาชิกสูงสุด"
                   rules={[
                     {
                       required: true,
@@ -282,7 +282,7 @@ function CampaignAdd(props: Props) {
               </div>
 
               <div className="w-full mt-4">
-                <span className="text-[15px]">* Image</span>
+                <span className="text-[15px]">* รูปภาพ</span>
                 <ImageUpload fileList={images} setFileList={setImages} />
               </div>
             </div>
@@ -291,7 +291,7 @@ function CampaignAdd(props: Props) {
                 // disabled={!checked || !checked2}
                 className="w-full"
               >
-                Create Campaign
+                สร้างกิจกรรม
               </ButtonStyled>
             </div>
           </Form>

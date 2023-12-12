@@ -87,28 +87,28 @@ function UserPage(props: Props) {
         <h1 className="text-black text-3xl font-bold mb-6">USER</h1>
         <div className="flex flex-col gap-4 w-full">
           <div className="grid grid-cols-8 px-12 items-center w-full p-4 bg-white">
-            <h3 className='text-blue-800 col-span-3'>Name</h3>
-            <h3 className='text-blue-800'>Name</h3>
-            <h3 className='text-blue-800'>Faucet</h3>
-            <h3 className='text-blue-800'>Send Status</h3>
-            <h3 className='text-blue-800'>Verify Status</h3>
-            <h3 className='text-blue-800'>Action</h3>
+            <h3 className='text-blue-800 col-span-3'>ชื่อ</h3>
+            <h3 className='text-blue-800'>รายละเอียด</h3>
+            <h3 className='text-blue-800'>สถานะเคลม ETH</h3>
+            <h3 className='text-blue-800'>สถานะส่งยืนยันตัวตน</h3>
+            <h3 className='text-blue-800'>ยืนยันตัวตน</h3>
+            <h3 className='text-blue-800'>ดำเนินการ</h3>
           </div>
           {state.map((user: any) => (
             <div key={user.address} className="">
               <div className="grid grid-cols-8 items-center border-2 w-full p-4 bg-white rounded-lg shadow-md">
                 {/*  */}
                 <div className="col-span-3 flex flex-col ml-4">
-                  <span className="text-red-800 text-lg font-bold">Role : {user.role || '-'}</span>
-                  <span className="text-black text-lg font-bold">Name : {user.name || '-'}</span>
+                  <span className="text-red-800 text-lg font-bold">บทบาท : {user.role || '-'}</span>
+                  <span className="text-black text-lg font-bold">ชื่อ : {user.name || '-'}</span>
                   <span className="text-gray-500 text-lg">{addressParse(user.address)}</span>
                 </div>
                 {/*  */}
                 {/*  */}
                 <div className="flex flex-col ml-4">
-                  <span className="text-black text-lg font-bold">Faculty : {user.faculty}</span>
+                  <span className="text-black text-lg font-bold">คณะ : {user.faculty}</span>
                   <span className="text-purple-800 text-lg font-bold">
-                    Student ID : {user.student_id || '-'}
+                    รหัสนักศึกษา : {user.student_id || '-'}
                   </span>
                 </div>
                 {/*  */}
@@ -130,7 +130,7 @@ function UserPage(props: Props) {
                 <div className="flex flex-col ml-4">
                   {user.isSendVerify && !user.isVerified && (
                     <ButtonStyled onClick={verify(user.address)} className="w-full text-center">
-                      Verify
+                      ยืนยันตัวตน
                     </ButtonStyled>
                   )}
                 </div>
