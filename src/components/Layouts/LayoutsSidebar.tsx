@@ -180,7 +180,6 @@ function LayoutsSidebar(props: Props) {
       >
         <div className="py-4 h-[10rem] bg-text-purple mb-2 rounded-lg flex flex-col justify-end items-center relative">
           <img src={book} className="h-auto w-[10rem] object-contain absolute -top-1/2" />
-          <p className="text-white">Generate Report</p>
         </div>
         <p className="text-text-gray text-base">
           Reliefer Dashboard
@@ -188,7 +187,7 @@ function LayoutsSidebar(props: Props) {
         <p className="text-text-gray mt-8 text-base mb-4">Made with ♥ by Reliefer Team</p>
         <ButtonStyled className="w-full" onClick={logoutClick}>
           {' '}
-          Logout
+          ออกจากระบบ
         </ButtonStyled>
       </div>
     </SidebarWrapper>

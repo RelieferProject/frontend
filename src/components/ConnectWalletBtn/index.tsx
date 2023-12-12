@@ -25,7 +25,7 @@ function ConnectWalletBtn(props: Props) {
             ? accountWeb3.slice(0, 4) +
               '....' +
               accountWeb3.slice(accountWeb3.length - 4, accountWeb3.length)
-            : 'Connect Wallet'}
+            : 'เข้าสู่ระบบ'}
         </div>
       </div>
     </Link>

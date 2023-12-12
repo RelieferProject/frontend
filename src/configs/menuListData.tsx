@@ -5,19 +5,19 @@ import { HiUserGroup } from 'react-icons/hi';
 
 const menuListData: any[] = [
   {
-    name: 'Dashboard',
+    name: 'หน้าแรก',
     key: 'Dashboard',
     path: '/',
     icon: <RiDashboardLine />,
   },
   {
-    name: 'Campaign',
+    name: 'กิจกรรม',
     key: 'campaign',
     path: '/campaign',
     icon: <MdCampaign />,
   },
   {
-    name: 'User',
+    name: 'สมาชิก',
     key: 'user',
     path: '/user',
     icon: <HiUserGroup />,

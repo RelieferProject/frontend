@@ -45,7 +45,7 @@ function LayoutsHeader(props: Props) {
       </div>
 
       <div className="flex items-center justify-end h-full py-4">
-        <div className="hidden md:flex items-center space-x-4 mr-10">
+        {/* <div className="hidden md:flex items-center space-x-4 mr-10">
           <form className="bg-gray-100 rounded-md flex items-center py-2 px-6">
             <BiSearch className="fill-gray-600" />
             <input
@@ -63,7 +63,7 @@ function LayoutsHeader(props: Props) {
           <div className="icon-box">
             <Icon icon={'bytesize:gift'} className="icon" />
           </div>
-        </div>
+        </div> */}
         <ConnectWalletBtn />
         {/* <div className=" p-1 h-full rounded-xl">
           <img className="w-full h-full object-contain" src={MonkeySvg} />

@@ -16,10 +16,10 @@ const CampaignPage = () => {
     <CampaignPageWrapper>
       <LayoutsContainer>
         <div className="flex justify-between w-full items-center">
-          <h1 className="text-4xl font-bold">Campaings List</h1>
+          <h1 className="text-4xl font-bold">รายชื่อกิจกรรม</h1>
           <div className="w-[20rem]">
             <Link to="/campaign/add">
-              <ButtonStyled className="w-full text-center">+ Add Campaign</ButtonStyled>
+              <ButtonStyled className="w-full text-center">+ เพิ่ม กิจกรรม</ButtonStyled>
             </Link>
           </div>
         </div>

@@ -12,20 +12,20 @@ import { createRef } from 'react';
 import { Navigate } from 'react-router-dom';
 
 const routes = [
-  { path: '/', element: <AdminDashboard name="Dashboard" />, nodeRef: createRef() },
+  { path: '/', element: <AdminDashboard name="หน้าแรก" />, nodeRef: createRef() },
   // { path: '/*', element: <AdminDashboard name="Dashboard" />, nodeRef: createRef() },
   // { path: '/', key: 'Other', name: 'Other', element: <Navigate to="/admin/dashboard" replace /> },
   {
     path: '/connect',
     key: 'Connect',
-    name: 'Connect Wallet',
+    name: 'เข้าสู่ระบบ',
     element: <Connect />,
     nodeRef: createRef(),
   },
   {
     path: '/campaign',
     key: 'campaign',
-    name: 'Campaign',
+    name: 'กิจกรรม',
     element: <CampaignPage />,
     nodeRef: createRef(),
   },
@@ -39,14 +39,14 @@ const routes = [
   {
     path: '/campaign/add',
     key: 'AddCampaign',
-    name: 'Add Campaign',
+    name: 'เพิ่มกิจกรรม',
     element: <CampaignAdd />,
     nodeRef: createRef(),
   },
   {
     path: '/user',
     key: 'User',
-    name: 'User',
+    name: 'สมาชิก',
     element: <UserPage />,
     nodeRef: createRef(),
   },

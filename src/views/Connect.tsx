@@ -89,8 +89,8 @@ function WalletConnect() {
       <CSSTransition in={!active || !token} timeout={300} classNames="fade" unmountOnExit>
         <div className="absolute top-0 flex flex-col items-center space-y-10">
           <div className="w-full flex flex-col items-center">
-            <h2 className="text-5xl text-black mb-4">Connect your crypto wallet</h2>
-            <p className="text-2xl">Connect with one of available wallet providers</p>
+            <h2 className="text-5xl text-black mb-4">เข้าสู่ระบบด้วย กระเป๋าเงินดิจิตอล</h2>
+            {/* <p className="text-2xl">Connect with one of available wallet providers</p> */}
           </div>
           {/* wallet list */}
           <div className="grid lg:grid-cols-5 md:grid-cols-3 maxsm:grid-cols-2 sm:grid-cols-3 justify-center items-center">
@@ -125,13 +125,13 @@ function WalletConnect() {
               >
                 <div className="min-w-[40rem] absolute top-0 mx-auto p-10 rounded-md bg-bg-purple-default  flex flex-col items-center space-y-8">
                   <img className="w-[13rem]" src={e.img} alt="" />
-                  <b className="text-3xl text-white">Connect your {e.name}</b>
+                  <b className="text-3xl text-white">เข้าสู่ระบบด้วย {e.name}</b>
                   <ButtonStyled
                     onClick={() => onClickConnect(e.connect)}
                     color="secondary"
                     className="w-full text-center"
                   >
-                    Sign in
+                    เข้าสู่ระบบ
                   </ButtonStyled>
                 </div>
               </CSSTransition>
@@ -142,7 +142,7 @@ function WalletConnect() {
       {/*  */}
       <CSSTransition in={active && Boolean(token)} timeout={300} classNames="fade" unmountOnExit>
         <div className="min-w-[40rem] absolute top-0 mx-auto p-10 rounded-md bg-bg-dark-medium flex flex-col items-center space-y-8">
-          <b className="text-5xl text-white">Your wallet</b>
+          <b className="text-5xl text-white">กระเป๋าของคุณ</b>
 
           <div className="w-full relative flex items-center">
             <div className="text-white text-2xl p-4 w-full rounded-md bg-bg-dark-light">{account}</div>
@@ -157,7 +157,7 @@ function WalletConnect() {
           </div>
 
           <ButtonStyled className="text-center w-full" onClick={logout}>
-            Sign out
+            ออกจากระบบ
           </ButtonStyled>
         </div>
       </CSSTransition>
